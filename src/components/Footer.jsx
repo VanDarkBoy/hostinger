@@ -8,8 +8,8 @@ const Footer = () => {
 
   const footerLinks = [
     {
-      title: '产品系列',
-      links: ['家用储能电池', '商用储能解决方案', '工业级储能系统', '智能管理系统']
+      title: '',
+      links: []
     },
     {
       title: '服务支持',
@@ -135,7 +135,7 @@ const Footer = () => {
           className="mt-8 text-center"
         >
           <p className="text-gray-500 text-xs">
-            粤ICP备12345678号 | 营业执照 | 环保认证 | ISO9001质量管理体系认证
+            -
           </p>
         </motion.div>
       </div>
