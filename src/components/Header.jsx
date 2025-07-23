@@ -43,13 +43,13 @@ const Header = () => {
               <Zap className="h-4 w-4 text-yellow-400 absolute -top-1 -right-1" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
-              绿能科技
+              Lekkerix
             </span>
           </motion.div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {['首页', '产品', '关于我们', '位置', '联系我们'].map((item, index) => {
+            {['Home', 'Products', 'About us', 'Location', 'Contact us'].map((item, index) => {
               const sectionIds = ['hero', 'products', 'about', 'location', 'contact'];
               return (
                 <motion.button

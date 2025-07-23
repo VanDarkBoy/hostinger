@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import {MapPin, Phone, Mail, Clock, MessageCircleIcon} from 'lucide-react';
 
 const Location = () => {
   const mapRef = useRef(null);
@@ -11,11 +11,11 @@ const Location = () => {
     const loadMap = async () => {
       try {
         const L = await import('leaflet');
-        
+
         if (mapRef.current && !mapRef.current._leaflet_id) {
           // 深圳市坐标
-          const map = L.map(mapRef.current).setView([22.5431, 114.0579], 13);
-          
+          const map = L.map(mapRef.current).setView([-1.3486159003231244, 36.903068869114094], 13);
+
           L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
           }).addTo(map);
@@ -28,11 +28,11 @@ const Location = () => {
             iconAnchor: [15, 15]
           });
 
-          L.marker([22.5431, 114.0579], { icon: customIcon })
+          L.marker([-1.3486159003231244, 36.903068869114094], { icon: customIcon })
             .addTo(map)
             .bindPopup(`
               <div style="text-align: center; padding: 10px;">
-                <strong style="color: #1f2937;">绿能科技总部</strong><br>
+                <strong style="color: #1f2937;">Lekkerix总部</strong><br>
                 <span style="color: #6b7280;">深圳市南山区科技园</span>
               </div>
             `);
@@ -48,26 +48,34 @@ const Location = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: '公司地址',
-      content: '深圳市南山区科技园南区高新南七道12号',
+      title: 'Company address',
+      content: 'Physical address:\n' +
+          'Unit:00,Floor:00,KC ARORA COMPLEX,\n' +
+          'Plot:15130,Mombasa road,Embakasi,EmbakasiEast,Nairobi',
       color: 'text-blue-400'
     },
     {
       icon: Phone,
-      title: '联系电话',
-      content: '+86 755-8888-9999',
+      title: 'Contact number',
+      content: '+254 718327580',
       color: 'text-green-400'
     },
     {
+      icon: MessageCircleIcon,
+      title: 'Whatsup',
+      content: '+254 718327580',
+      color: 'text-green-200'
+    },
+    {
       icon: Mail,
-      title: '邮箱地址',
-      content: 'info@greenenergy.com',
+      title: 'Email',
+      content: 'lekkerix@gmail.com,simon@lekkerix.co.ke',
       color: 'text-purple-400'
     },
     {
       icon: Clock,
-      title: '营业时间',
-      content: '周一至周五 9:00-18:00',
+      title: 'Business Hours',
+      content: 'Monday to Friday 8:00am-5:00pm|Saturday 8:00am-12:00am',
       color: 'text-yellow-400'
     }
   ];
@@ -83,10 +91,10 @@ const Location = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
-            我们的位置
+            Our Location
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            欢迎来到我们位于深圳科技园的总部，体验最新的储能技术和解决方案
+            Welcome to our headquarters in Mombasa to experience the latest energy storage technologies and solutions
           </p>
         </motion.div>
 
@@ -99,7 +107,7 @@ const Location = () => {
             className="space-y-6"
           >
             <div className="glass-effect rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">联系信息</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Contact information</h3>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <motion.div
@@ -122,23 +130,23 @@ const Location = () => {
               </div>
             </div>
 
-            <div className="glass-effect rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">交通指南</h3>
-              <div className="space-y-4 text-gray-300">
-                <div>
-                  <h4 className="font-semibold text-blue-400 mb-2">地铁</h4>
-                  <p>地铁1号线高新园站A出口，步行5分钟</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-green-400 mb-2">公交</h4>
-                  <p>高新园地铁站、科技园站多路公交可达</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-purple-400 mb-2">自驾</h4>
-                  <p>大楼地下停车场，访客停车位充足</p>
-                </div>
-              </div>
-            </div>
+            {/*<div className="glass-effect rounded-2xl p-8">*/}
+            {/*  <h3 className="text-2xl font-bold text-white mb-4">交通指南</h3>*/}
+            {/*  <div className="space-y-4 text-gray-300">*/}
+            {/*    <div>*/}
+            {/*      <h4 className="font-semibold text-blue-400 mb-2">地铁</h4>*/}
+            {/*      <p>地铁1号线高新园站A出口，步行5分钟</p>*/}
+            {/*    </div>*/}
+            {/*    <div>*/}
+            {/*      <h4 className="font-semibold text-green-400 mb-2">公交</h4>*/}
+            {/*      <p>高新园地铁站、科技园站多路公交可达</p>*/}
+            {/*    </div>*/}
+            {/*    <div>*/}
+            {/*      <h4 className="font-semibold text-purple-400 mb-2">自驾</h4>*/}
+            {/*      <p>大楼地下停车场，访客停车位充足</p>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
           </motion.div>
 
           <motion.div
@@ -149,43 +157,43 @@ const Location = () => {
             className="space-y-6"
           >
             <div className="glass-effect rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">位置地图</h3>
-              <div 
+              <h3 className="text-2xl font-bold text-white mb-6">Location map</h3>
+              <div
                 ref={mapRef}
                 className="leaflet-container rounded-lg"
                 style={{ height: '400px' }}
               />
             </div>
 
-            <div className="glass-effect rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">周边环境</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <MapPin className="h-6 w-6 text-blue-400" />
-                  </div>
-                  <p className="text-sm text-gray-300">科技园核心区域</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <MapPin className="h-6 w-6 text-green-400" />
-                  </div>
-                  <p className="text-sm text-gray-300">临近高新技术企业</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <MapPin className="h-6 w-6 text-purple-400" />
-                  </div>
-                  <p className="text-sm text-gray-300">交通便利</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <MapPin className="h-6 w-6 text-yellow-400" />
-                  </div>
-                  <p className="text-sm text-gray-300">配套设施完善</p>
-                </div>
-              </div>
-            </div>
+            {/*<div className="glass-effect rounded-2xl p-8">*/}
+            {/*  <h3 className="text-2xl font-bold text-white mb-4">周边环境</h3>*/}
+            {/*  <div className="grid grid-cols-2 gap-4">*/}
+            {/*    <div className="text-center">*/}
+            {/*      <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-2">*/}
+            {/*        <MapPin className="h-6 w-6 text-blue-400" />*/}
+            {/*      </div>*/}
+            {/*      <p className="text-sm text-gray-300">科技园核心区域</p>*/}
+            {/*    </div>*/}
+            {/*    <div className="text-center">*/}
+            {/*      <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-2">*/}
+            {/*        <MapPin className="h-6 w-6 text-green-400" />*/}
+            {/*      </div>*/}
+            {/*      <p className="text-sm text-gray-300">临近高新技术企业</p>*/}
+            {/*    </div>*/}
+            {/*    <div className="text-center">*/}
+            {/*      <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-2">*/}
+            {/*        <MapPin className="h-6 w-6 text-purple-400" />*/}
+            {/*      </div>*/}
+            {/*      <p className="text-sm text-gray-300">交通便利</p>*/}
+            {/*    </div>*/}
+            {/*    <div className="text-center">*/}
+            {/*      <div className="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-2">*/}
+            {/*        <MapPin className="h-6 w-6 text-yellow-400" />*/}
+            {/*      </div>*/}
+            {/*      <p className="text-sm text-gray-300">配套设施完善</p>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
           </motion.div>
         </div>
       </div>

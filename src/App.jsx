@@ -14,8 +14,8 @@ function App() {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>绿能科技 - 专业储能电池解决方案</title>
-        <meta name="description" content="绿能科技专注于储能电池技术研发与生产，提供高效、安全、可靠的储能解决方案。联系我们获取专业咨询服务。" />
+        <title>Lekkerix - 专业储能电池解决方案</title>
+        <meta name="description" content="Lekkerix专注于储能电池技术研发与生产，提供高效、安全、可靠的储能解决方案。联系我们获取专业咨询服务。" />
       </Helmet>
       
       <Header />

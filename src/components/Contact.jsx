@@ -68,35 +68,35 @@ const Contact = () => {
   const inputFields = [
     {
       name: 'name',
-      label: '姓名',
+      label: 'Your Name',
       type: 'text',
       icon: User,
       required: true,
-      placeholder: '请输入您的姓名'
+      placeholder: ''
     },
     {
       name: 'email',
-      label: '邮箱',
+      label: 'Your Email',
       type: 'email',
       icon: Mail,
       required: true,
-      placeholder: '请输入您的邮箱地址'
+      placeholder: ''
     },
     {
       name: 'company',
-      label: '公司名称',
+      label: 'Company name',
       type: 'text',
       icon: Building,
       required: false,
-      placeholder: '请输入您的公司名称（可选）'
+      placeholder: ''
     },
     {
       name: 'phone',
-      label: '联系电话',
+      label: 'Contact number',
       type: 'tel',
       icon: Phone,
       required: false,
-      placeholder: '请输入您的联系电话（可选）'
+      placeholder: ''
     }
   ];
 
@@ -111,10 +111,10 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
-            联系我们
+            Contact us
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            有任何关于储能电池的问题或需求？请随时联系我们，我们的专业团队将为您提供最优质的服务
+            Have any questions or needs about energy storage batteries? Please feel free to contact us, our professional team will provide you with the best quality service
           </p>
         </motion.div>
 
@@ -127,13 +127,13 @@ const Contact = () => {
             className="space-y-8"
           >
             <div className="glass-effect rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">为什么选择我们？</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Why choose us？</h3>
               <div className="space-y-4">
                 {[
-                  { title: '专业团队', desc: '10年以上行业经验的技术专家' },
-                  { title: '快速响应', desc: '24小时内回复您的询盘' },
-                  { title: '定制方案', desc: '根据您的需求提供专属解决方案' },
-                  { title: '售后保障', desc: '完善的售后服务体系' }
+                  { title: 'Professional team', desc: 'Technical experts with more than 10 years of industry experience' },
+                  { title: 'Quick response', desc: 'Reply your inquiry within 24 hours' },
+                  { title: 'Customized solutions', desc: 'Tailored solutions tailored to your needs' },
+                  { title: 'After-sales guarantee', desc: 'Perfect after-sales service system' }
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -154,15 +154,15 @@ const Contact = () => {
             </div>
 
             <div className="glass-effect rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">服务范围</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Scope of services:</h3>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  '技术咨询',
-                  '方案设计',
-                  '产品选型',
-                  '安装指导',
-                  '维护服务',
-                  '培训支持'
+                  'Technical advice',
+                  'Scheme design',
+                  'Product selection',
+                  'Installation Instructions',
+                  'Maintenance services',
+                  'Training support'
                 ].map((service, index) => (
                   <motion.div
                     key={index}
@@ -186,7 +186,7 @@ const Contact = () => {
             viewport={{ once: true }}
           >
             <div className="glass-effect rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">发送询盘</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Send Inquiry</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {inputFields.map((field, index) => (
@@ -217,27 +217,27 @@ const Contact = () => {
                   ))}
                 </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  viewport={{ once: true }}
-                >
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    主题
-                  </label>
-                  <div className="relative">
-                    <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                    <input
-                      type="text"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      placeholder="请输入询盘主题（可选）"
-                      className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    />
-                  </div>
-                </motion.div>
+                {/*<motion.div*/}
+                {/*  initial={{ opacity: 0, y: 20 }}*/}
+                {/*  whileInView={{ opacity: 1, y: 0 }}*/}
+                {/*  transition={{ duration: 0.5, delay: 0.4 }}*/}
+                {/*  viewport={{ once: true }}*/}
+                {/*>*/}
+                {/*  <label className="block text-sm font-medium text-gray-300 mb-2">*/}
+                {/*    Message*/}
+                {/*  </label>*/}
+                {/*  <div className="relative">*/}
+                {/*    <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400" />*/}
+                {/*    <input*/}
+                {/*      type="text"*/}
+                {/*      name="subject"*/}
+                {/*      value={formData.subject}*/}
+                {/*      onChange={handleInputChange}*/}
+                {/*      placeholder="请输入询盘主题（可选）"*/}
+                {/*      className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"*/}
+                {/*    />*/}
+                {/*  </div>*/}
+                {/*</motion.div>*/}
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -246,13 +246,13 @@ const Contact = () => {
                   viewport={{ once: true }}
                 >
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    留言内容 <span className="text-red-400">*</span>
+                    Message content <span className="text-red-400">*</span>
                   </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    placeholder="请详细描述您的需求，包括应用场景、容量要求、预算范围等信息..."
+                    placeholder="Please describe your needs in detail, including application scenarios, capacity requirements, budget range, etc..."
                     required
                     rows={6}
                     className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
@@ -270,7 +270,7 @@ const Contact = () => {
                     className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 energy-glow"
                   >
                     <Send className="h-5 w-5 mr-2" />
-                    发送询盘
+                    Send Inquiry
                   </Button>
                 </motion.div>
               </form>

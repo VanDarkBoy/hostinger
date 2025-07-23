@@ -48,7 +48,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-green-400 to-blue-600 bg-clip-text text-transparent"
           >
-            绿能科技
+            Lekkerix
           </motion.h1>
           
           <motion.p
@@ -57,9 +57,9 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed"
           >
-            专业储能电池解决方案提供商
+            Professional energy storage battery solution provider
             <br />
-            <span className="text-lg text-blue-400">高效 · 安全 · 可靠 · 环保</span>
+            {/*<span className="text-lg text-blue-400">highly efficient · safe · reliable · environmental protection</span>*/}
           </motion.p>
 
           <motion.div
@@ -69,9 +69,9 @@ const Hero = () => {
             className="flex flex-wrap justify-center gap-8 mb-12"
           >
             {[
-              { icon: Zap, text: '高效储能', color: 'text-yellow-400' },
-              { icon: Shield, text: '安全可靠', color: 'text-blue-400' },
-              { icon: Leaf, text: '绿色环保', color: 'text-green-400' }
+              { icon: Zap, text: 'Efficient energy storage', color: 'text-yellow-400' },
+              { icon: Shield, text: 'Safe and reliable', color: 'text-blue-400' },
+              { icon: Leaf, text: 'Green and environmentally friendly', color: 'text-green-400' }
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -95,7 +95,7 @@ const Hero = () => {
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-3 rounded-full text-lg font-semibold energy-glow transition-all duration-300"
             >
-              探索我们的产品
+              Explore our products
             </Button>
           </motion.div>
         </motion.div>
@@ -107,12 +107,12 @@ const Hero = () => {
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
-            animate={{ y: [0, 10, 0] }}
+            animate={{ y: [0, 20, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="cursor-pointer"
             onClick={scrollToProducts}
           >
-            <ArrowDown className="h-8 w-8 text-blue-400" />
+            <ArrowDown className="h-10 w-8 text-blue-400" />
           </motion.div>
         </motion.div>
       </div>
