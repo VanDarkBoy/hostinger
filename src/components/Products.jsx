@@ -1,7 +1,6 @@
 import React from 'react';
 import {motion} from 'framer-motion';
 import {Battery, Zap, Shield, Gauge, Thermometer, Recycle, ShieldCheck} from 'lucide-react';
-import {Button} from '@/components/ui/button';
 import {useToast} from '@/components/ui/use-toast';
 
 const Products = () => {
@@ -125,7 +124,8 @@ const Products = () => {
                         Our Product
                     </h2>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                        From home to industrial, we offer a full range of energy storage battery solutions to meet the energy needs of different scenarios
+                        From home to industrial, we offer a full range of energy storage battery solutions to meet the
+                        energy needs of different scenarios
                     </p>
                 </motion.div>
 
@@ -141,10 +141,7 @@ const Products = () => {
                             className="product-card rounded-2xl p-8 group hover:shadow-2xl transition-all duration-300"
                         >
                             <div className="relative mb-6">
-                                {/*<div*/}
-                                {/*    className={`w-16 h-16 rounded-full bg-gradient-to-r ${product.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>*/}
-                                {/*    <product.icon className="h-8 w-8 text-white"/>*/}
-                                {/*</div>*/}
+
                                 <img
                                     className="w-full h-48 object-cover rounded-lg mb-4"
                                     alt={`${product.name}Product image`}
@@ -154,14 +151,6 @@ const Products = () => {
                             <h3 className="text-2xl font-bold text-white mb-2">{product.name}</h3>
                             <p className="text-blue-400 text-lg font-semibold mb-4">{product.capacity}</p>
 
-                            {/*<div className="space-y-3 mb-6">*/}
-                            {/*    {product.features.map((feature, idx) => (*/}
-                            {/*        <div key={idx} className="flex items-center space-x-2">*/}
-                            {/*            <div className="w-2 h-2 bg-green-400 rounded-full"></div>*/}
-                            {/*            <span className="text-gray-300">{feature}</span>*/}
-                            {/*        </div>*/}
-                            {/*    ))}*/}
-                            {/*</div>*/}
 
                             <div className="grid grid-cols-3 gap-4 mb-6">
                                 <div className="text-center">
@@ -181,12 +170,7 @@ const Products = () => {
                                 </div>
                             </div>
 
-                            {/*<Button*/}
-                            {/*    onClick={handleLearnMore}*/}
-                            {/*    className={`w-full bg-gradient-to-r ${product.color} hover:opacity-90 text-white font-semibold py-2 rounded-lg transition-all duration-300`}*/}
-                            {/*>*/}
-                            {/*    了解更多*/}
-                            {/*</Button>*/}
+
                         </motion.div>
                     ))}
                 </div>
@@ -207,7 +191,8 @@ const Products = () => {
                                     <Battery className="h-6 w-6 text-blue-400"/>
                                 </div>
                                 <h4 className="font-semibold text-white mb-2">Advanced technology</h4>
-                                <p className="text-gray-300 text-sm">It adopts the latest lithium battery technology to ensure efficient and stable performance</p>
+                                <p className="text-gray-300 text-sm">It adopts the latest lithium battery technology to
+                                    ensure efficient and stable performance</p>
                             </div>
                             <div className="text-center">
                                 <div
@@ -215,7 +200,8 @@ const Products = () => {
                                     <Shield className="h-6 w-6 text-green-400"/>
                                 </div>
                                 <h4 className="font-semibold text-white mb-2">Safe and reliable</h4>
-                                <p className="text-gray-300 text-sm">Multiple security protection mechanisms, passed international safety certification standards</p>
+                                <p className="text-gray-300 text-sm">Multiple security protection mechanisms, passed
+                                    international safety certification standards</p>
                             </div>
                             <div className="text-center">
                                 <div
@@ -223,7 +209,8 @@ const Products = () => {
                                     <Zap className="h-6 w-6 text-purple-400"/>
                                 </div>
                                 <h4 className="font-semibold text-white mb-2">Intelligent management</h4>
-                                <p className="text-gray-300 text-sm">Intelligent BMS system monitors battery status in real time and optimizes usage efficiency</p>
+                                <p className="text-gray-300 text-sm">Intelligent BMS system monitors battery status in
+                                    real time and optimizes usage efficiency</p>
                             </div>
                         </div>
                     </div>

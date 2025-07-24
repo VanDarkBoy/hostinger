@@ -84,7 +84,7 @@ const Header = () => {
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden mt-4 glass-effect rounded-lg p-4"
           >
-            {['首页', '产品', '关于我们', '位置', '联系我们'].map((item, index) => {
+            {['Home', 'Products', 'About us', 'Location', 'Contact us'].map((item, index) => {
               const sectionIds = ['hero', 'products', 'about', 'location', 'contact'];
               return (
                 <button
