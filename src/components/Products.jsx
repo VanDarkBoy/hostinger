@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {motion} from 'framer-motion';
 import {Battery, Zap, Shield, Gauge, Thermometer, Recycle, ShieldCheck} from 'lucide-react';
 import {useToast} from '@/components/ui/use-toast';
@@ -13,102 +13,34 @@ const Products = () => {
         });
     };
 
-    const products = [
-        {
-            id: 1,
-            name: '家用储能电池系统',
-            imgUrl: "https://images.unsplash.com/photo-1680591483838-67a3fe473b93",
-            capacity: '10kWh - 20kWh',
-            features: ['智能管理', '安全保护', '长寿命'],
-            icon: Battery,
-            color: 'from-blue-500 to-cyan-500',
-            specs: {
-                voltage: '48V',
-                cycles: '6000+',
-                efficiency: '95%'
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await fetch('https://vandark.natapp4.cc/crmOpen/collect/products');
+                const res = await response.json();
+
+                if (res.code === 200) {
+                    setProducts(res.data || []);
+                } else {
+                    toast({
+                        title: "产品获取失败",
+                        description: res.msg || "请稍后重试",
+                        variant: "destructive"
+                    });
+                }
+            } catch (err) {
+                toast({
+                    title: "产品获取失败",
+                    description: err.message || "请稍后重试",
+                    variant: "destructive"
+                });
             }
-        },
-        {
-            id: 2,
-            name: '家用储能电池系统',
-            imgUrl: "https://images.unsplash.com/photo-1680591483838-67a3fe473b93",
-            capacity: '10kWh - 20kWh',
-            features: ['智能管理', '安全保护', '长寿命'],
-            icon: Battery,
-            color: 'from-blue-500 to-cyan-500',
-            specs: {
-                voltage: '48V',
-                cycles: '6000+',
-                efficiency: '95%'
-            }
-        },
-        {
-            id: 3,
-            name: '家用储能电池系统',
-            imgUrl: "https://images.unsplash.com/photo-1680591483838-67a3fe473b93",
-            capacity: '10kWh - 20kWh',
-            features: ['智能管理', '安全保护', '长寿命'],
-            icon: Battery,
-            color: 'from-blue-500 to-cyan-500',
-            specs: {
-                voltage: '48V',
-                cycles: '6000+',
-                efficiency: '95%'
-            }
-        }, {
-            id: 4,
-            name: '家用储能电池系统',
-            imgUrl: "https://images.unsplash.com/photo-1680591483838-67a3fe473b93",
-            capacity: '10kWh - 20kWh',
-            features: ['智能管理', '安全保护', '长寿命'],
-            icon: Battery,
-            color: 'from-blue-500 to-cyan-500',
-            specs: {
-                voltage: '48V',
-                cycles: '6000+',
-                efficiency: '95%'
-            }
-        }, {
-            id: 5,
-            name: '家用储能电池系统',
-            imgUrl: "https://images.unsplash.com/photo-1680591483838-67a3fe473b93",
-            capacity: '10kWh - 20kWh',
-            features: ['智能管理', '安全保护', '长寿命'],
-            icon: Battery,
-            color: 'from-blue-500 to-cyan-500',
-            specs: {
-                voltage: '48V',
-                cycles: '6000+',
-                efficiency: '95%'
-            }
-        }, {
-            id: 6,
-            name: '家用储能电池系统',
-            imgUrl: "https://images.unsplash.com/photo-1680591483838-67a3fe473b93",
-            capacity: '10kWh - 20kWh',
-            features: ['智能管理', '安全保护', '长寿命'],
-            icon: Battery,
-            color: 'from-blue-500 to-cyan-500',
-            specs: {
-                voltage: '48V',
-                cycles: '6000+',
-                efficiency: '95%'
-            }
-        }, {
-            id: 7,
-            name: '家用储能电池系统',
-            imgUrl: "https://images.unsplash.com/photo-1680591483838-67a3fe473b93",
-            capacity: '10kWh - 20kWh',
-            features: ['智能管理', '安全保护', '长寿命'],
-            icon: Battery,
-            color: 'from-blue-500 to-cyan-500',
-            specs: {
-                voltage: '48V',
-                cycles: '6000+',
-                efficiency: '95%'
-            }
-        }
-    ];
+        };
+
+        fetchProducts();
+    }, [toast]);
 
     return (
         <section id="products" className="py-20 relative">
