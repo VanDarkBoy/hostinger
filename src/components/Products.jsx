@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {motion} from 'framer-motion';
 import {Battery, Zap, Shield, Gauge, Thermometer, Recycle, ShieldCheck} from 'lucide-react';
 import {useToast} from '@/components/ui/use-toast';
+import {Button} from "@/components/ui/button.jsx";
 
 const Products = () => {
     const {toast} = useToast();
@@ -18,7 +19,7 @@ const Products = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('https://vandark.natapp4.cc/crmOpen/collect/products');
+                const response = await fetch('https://vandark.natapp4.cc/crmOpen/products');
                 const res = await response.json();
 
                 if (res.code === 200) {
@@ -88,21 +89,26 @@ const Products = () => {
                                 <div className="text-center">
                                     <Gauge className="h-5 w-5 text-blue-400 mx-auto mb-1"/>
                                     <p className="text-xs text-gray-400">Voltage current</p>
-                                    <p className="text-sm font-semibold text-white">{product.specs.voltage}</p>
+                                    <p className="text-sm font-semibold text-white">{product.voltage}</p>
                                 </div>
                                 <div className="text-center">
                                     <Recycle className="h-5 w-5 text-green-400 mx-auto mb-1"/>
                                     <p className="text-xs text-gray-400">Cycles</p>
-                                    <p className="text-sm font-semibold text-white">{product.specs.cycles}</p>
+                                    <p className="text-sm font-semibold text-white">{product.cycles}</p>
                                 </div>
                                 <div className="text-center">
                                     <ShieldCheck className="h-5 w-5 text-yellow-400 mx-auto mb-1"/>
                                     <p className="text-xs text-gray-400">Warranty</p>
-                                    <p className="text-sm font-semibold text-white">{product.specs.efficiency}</p>
+                                    <p className="text-sm font-semibold text-white">{product.efficiency}</p>
                                 </div>
                             </div>
 
-
+                            <Button
+                                onClick={handleLearnMore}
+                                className={`w-full bg-gradient-to-r ${product.color} hover:opacity-90 text-white font-semibold py-2 rounded-lg transition-all duration-300`}
+                            >
+                                了解更多
+                            </Button>
                         </motion.div>
                     ))}
                 </div>
