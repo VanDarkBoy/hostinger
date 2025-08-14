@@ -1,49 +1,12 @@
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import {MapPin, Phone, Mail, Clock, MessageCircleIcon} from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircleIcon } from 'lucide-react';
 
 const Location = () => {
-  const mapRef = useRef(null);
-
-  useEffect(() => {
-    // 动态加载 Leaflet
-    const loadMap = async () => {
-      try {
-        const L = await import('leaflet');
-
-        if (mapRef.current && !mapRef.current._leaflet_id) {
-          // 深圳市坐标
-          const map = L.map(mapRef.current).setView([-1.3486159003231244, 36.903068869114094], 13);
-
-          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-          }).addTo(map);
-
-          // 自定义标记图标
-          const customIcon = L.divIcon({
-            html: `<div style="background: linear-gradient(45deg, #3b82f6, #10b981); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>`,
-            className: 'custom-marker',
-            iconSize: [30, 30],
-            iconAnchor: [15, 15]
-          });
-
-          L.marker([-1.3486159003231244, 36.903068869114094], { icon: customIcon })
-            .addTo(map)
-            .bindPopup(`
-              <div style="text-align: center; padding: 10px;">
-                <strong style="color: #1f2937;">Lekkerix总部</strong><br>
-                <span style="color: #6b7280;">深圳市南山区科技园</span>
-              </div>
-            `);
-        }
-      } catch (error) {
-        console.error('地图加载失败:', error);
-      }
-    };
-
-    loadMap();
-  }, []);
+  const mapSrc =
+    `https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}` +
+    `&q=-1.3486159003231244,36.903068869114094`;
 
   const contactInfo = [
     {
@@ -158,10 +121,14 @@ const Location = () => {
           >
             <div className="glass-effect rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-white mb-6">Location map</h3>
-              <div
-                ref={mapRef}
-                className="leaflet-container rounded-lg"
-                style={{ height: '400px' }}
+              <iframe
+                title="Company location map"
+                src={mapSrc}
+                className="w-full h-[400px] rounded-lg"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
 
