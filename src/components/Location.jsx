@@ -5,8 +5,10 @@ import { MapPin, Phone, Mail, Clock, MessageCircleIcon } from 'lucide-react';
 
 const Location = () => {
   const mapSrc =
-    `https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}` +
-    `&q=-1.3486159003231244,36.903068869114094`;
+    `https://api.map.baidu.com/marker?location=-1.3486159003231244,36.903068869114094` +
+    `&title=Company%20Location&content=Unit%3A00%2CFloor%3A00%2CKC%20ARORA%20COMPLEX` +
+    `%2CPlot%3A15130%2CMombasa%20road%2CEmbakasi%2CEmbakasiEast%2CNairobi` +
+    `&output=html&src=webapp.lekkerix.openplatform&ak=${import.meta.env.VITE_BAIDU_MAPS_AK}`;
 
   const contactInfo = [
     {
