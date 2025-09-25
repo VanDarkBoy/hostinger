@@ -19,22 +19,22 @@ const Products = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('https://vandark.natapp4.cc/crmOpen/products');
+                const response = await fetch('http://lekkerix.co.ke/api/inquiry/products');
                 const res = await response.json();
 
                 if (res.code === 200) {
                     setProducts(res.data || []);
                 } else {
                     toast({
-                        title: "产品获取失败",
-                        description: res.msg || "请稍后重试",
+                        title: "Product acquisition failed",
+                        description: res.msg || "Please try again later",
                         variant: "destructive"
                     });
                 }
             } catch (err) {
                 toast({
-                    title: "产品获取失败",
-                    description: err.message || "请稍后重试",
+                    title: "Product acquisition failed",
+                    description: err.message || "Please try again later",
                     variant: "destructive"
                 });
             }

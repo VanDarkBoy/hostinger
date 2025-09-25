@@ -28,8 +28,8 @@ const Contact = () => {
 
         if (!formData.name || !formData.email || !formData.message) {
             toast({
-                title: "请填写必填字段",
-                description: "姓名、邮箱和留言内容为必填项",
+                title: "Please fill in the required fields",
+                description: "Name, email address, and message content are required",
                 variant: "destructive"
             });
             return;
@@ -53,8 +53,8 @@ const Contact = () => {
             if (res.code === 200) {
 
                 toast({
-                    title: "询盘提交成功！",
-                    description: "我们会在24小时内回复您的询盘，感谢您的关注！",
+                    title: "The inquiry was successfully submitted！",
+                    description: "We will reply your inquiry within 24 hours, thank you for your attention!",
                 });
 
                 setFormData({
@@ -68,16 +68,16 @@ const Contact = () => {
             } else {
                 // 接口有响应但不是成功
                 toast({
-                    title: "提交失败",
-                    description: res.msg || "请稍后重试",
+                    title: "The commit failed",
+                    description: res.msg || "Please try again later",
                     variant: "destructive"
                 });
             }
         } catch (err) {
             // 网络或其它异常
             toast({
-                title: "提交失败",
-                description: err.message || "请稍后重试",
+                title: "The commit failed",
+                description: err.message || "Please try again later",
                 variant: "destructive"
             });
         }

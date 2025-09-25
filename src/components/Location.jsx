@@ -93,23 +93,6 @@ const Location = () => {
               </div>
             </div>
 
-            {/*<div className="glass-effect rounded-2xl p-8">*/}
-            {/*  <h3 className="text-2xl font-bold text-white mb-4">交通指南</h3>*/}
-            {/*  <div className="space-y-4 text-gray-300">*/}
-            {/*    <div>*/}
-            {/*      <h4 className="font-semibold text-blue-400 mb-2">地铁</h4>*/}
-            {/*      <p>地铁1号线高新园站A出口，步行5分钟</p>*/}
-            {/*    </div>*/}
-            {/*    <div>*/}
-            {/*      <h4 className="font-semibold text-green-400 mb-2">公交</h4>*/}
-            {/*      <p>高新园地铁站、科技园站多路公交可达</p>*/}
-            {/*    </div>*/}
-            {/*    <div>*/}
-            {/*      <h4 className="font-semibold text-purple-400 mb-2">自驾</h4>*/}
-            {/*      <p>大楼地下停车场，访客停车位充足</p>*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*</div>*/}
           </motion.div>
 
           <motion.div
@@ -132,35 +115,6 @@ const Location = () => {
               />
             </div>
 
-            {/*<div className="glass-effect rounded-2xl p-8">*/}
-            {/*  <h3 className="text-2xl font-bold text-white mb-4">周边环境</h3>*/}
-            {/*  <div className="grid grid-cols-2 gap-4">*/}
-            {/*    <div className="text-center">*/}
-            {/*      <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-2">*/}
-            {/*        <MapPin className="h-6 w-6 text-blue-400" />*/}
-            {/*      </div>*/}
-            {/*      <p className="text-sm text-gray-300">科技园核心区域</p>*/}
-            {/*    </div>*/}
-            {/*    <div className="text-center">*/}
-            {/*      <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-2">*/}
-            {/*        <MapPin className="h-6 w-6 text-green-400" />*/}
-            {/*      </div>*/}
-            {/*      <p className="text-sm text-gray-300">临近高新技术企业</p>*/}
-            {/*    </div>*/}
-            {/*    <div className="text-center">*/}
-            {/*      <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-2">*/}
-            {/*        <MapPin className="h-6 w-6 text-purple-400" />*/}
-            {/*      </div>*/}
-            {/*      <p className="text-sm text-gray-300">交通便利</p>*/}
-            {/*    </div>*/}
-            {/*    <div className="text-center">*/}
-            {/*      <div className="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-2">*/}
-            {/*        <MapPin className="h-6 w-6 text-yellow-400" />*/}
-            {/*      </div>*/}
-            {/*      <p className="text-sm text-gray-300">配套设施完善</p>*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*</div>*/}
           </motion.div>
         </div>
       </div>
