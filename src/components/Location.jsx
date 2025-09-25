@@ -1,12 +1,108 @@
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, MessageCircleIcon } from 'lucide-react';
 
 const Location = () => {
-  const mapSrc =
-    `https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}` +
-    `&q=-1.3486159003231244,36.903068869114094`;
+  const [mapError, setMapError] = useState('');
+  const [isMapInitialized, setIsMapInitialized] = useState(false);
+  const mapContainerRef = useRef(null);
+
+  useEffect(() => {
+    const ak = import.meta.env.VITE_BAIDU_MAPS_AK;
+
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
+
+    if (!mapContainerRef.current || isMapInitialized) {
+      return undefined;
+    }
+
+    if (!ak) {
+      setMapError('Baidu Maps access key is missing.');
+      return undefined;
+    }
+
+    const initMap = () => {
+      if (!mapContainerRef.current || !window.BMapGL) {
+        setMapError('Failed to load Baidu Maps API.');
+        return;
+      }
+
+      try {
+        setMapError('');
+        const map = new window.BMapGL.Map(mapContainerRef.current);
+        const point = new window.BMapGL.Point(36.903068869114094, -1.3486159003231244);
+
+        map.centerAndZoom(point, 18);
+        map.enableScrollWheelZoom(true);
+        map.addControl(new window.BMapGL.ZoomControl());
+        map.addControl(new window.BMapGL.ScaleControl());
+        map.addControl(new window.BMapGL.NavigationControl3D());
+
+        const marker = new window.BMapGL.Marker(point);
+        map.addOverlay(marker);
+
+        const infoWindow = new window.BMapGL.InfoWindow(
+          'Lekkerix Headquarters<br/>Unit 00, Floor 00, KC ARORA COMPLEX<br/>Plot 15130, Mombasa Road, Embakasi, Nairobi',
+          { width: 260 },
+        );
+
+        map.openInfoWindow(infoWindow, point);
+        setIsMapInitialized(true);
+      } catch (error) {
+        console.error(error);
+        setMapError('Unable to initialize Baidu Map.');
+      }
+    };
+
+    const existingScript = document.querySelector('script[data-bmapgl-loader]');
+
+    if (window.BMapGL) {
+      initMap();
+      return undefined;
+    }
+
+    if (existingScript) {
+      const handleExistingLoad = () => initMap();
+      const handleExistingError = () => {
+        setMapError('Failed to load Baidu Maps API script.');
+      };
+
+      existingScript.addEventListener('load', handleExistingLoad);
+      existingScript.addEventListener('error', handleExistingError);
+
+      return () => {
+        existingScript.removeEventListener('load', handleExistingLoad);
+        existingScript.removeEventListener('error', handleExistingError);
+      };
+    }
+
+    const script = document.createElement('script');
+    script.src = `https://api.map.baidu.com/api?v=1.0&type=webgl&ak=${ak}`;
+    script.async = true;
+    script.defer = true;
+    script.dataset.bmapglLoader = 'true';
+
+    const handleLoad = () => {
+      initMap();
+    };
+
+    const handleError = () => {
+      setMapError('Failed to load Baidu Maps API script.');
+    };
+
+    script.addEventListener('load', handleLoad);
+    script.addEventListener('error', handleError);
+
+    document.body.appendChild(script);
+
+    return () => {
+      script.removeEventListener('load', handleLoad);
+      script.removeEventListener('error', handleError);
+    };
+  }, [isMapInitialized]);
 
   const contactInfo = [
     {
@@ -104,15 +200,12 @@ const Location = () => {
           >
             <div className="glass-effect rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-white mb-6">Location map</h3>
-              <iframe
-                title="Company location map"
-                src={mapSrc}
-                className="w-full h-[400px] rounded-lg"
-                style={{ border: 0 }}
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+              <div className="w-full h-[400px] rounded-lg overflow-hidden">
+                <div ref={mapContainerRef} className="w-full h-full" />
+              </div>
+              {mapError && (
+                <p className="mt-4 text-sm text-red-400">{mapError}</p>
+              )}
             </div>
 
           </motion.div>
