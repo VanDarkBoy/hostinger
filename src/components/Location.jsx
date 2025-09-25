@@ -102,35 +102,18 @@ const Location = () => {
               <div className="glass-effect rounded-2xl p-8">
                 <h3 className="text-2xl font-bold text-white mb-6">Location map</h3>
                 <div className="w-full h-[400px] rounded-lg overflow-hidden">
-                  <iframe
-                      title="map"
-                      // 1st: maps.google.com 通常允许内嵌
-                      src={`https://maps.google.com/maps?q=${encodeURIComponent(
-                          "Unit:00, Floor:00, KC ARORA COMPLEX, Plot:15130, Mombasa Road, Embakasi, Embakasi East, Nairobi"
-                      )}&output=embed&z=16&iwloc=near`}
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      onError={(e) => {
-                        // 2nd: 尝试 www.google.com 的 embed 方式
-                        const f = e.currentTarget;
-                        const fallback = `https://www.google.com/maps?q=${encodeURIComponent(
-                            "Unit:00, Floor:00, KC ARORA COMPLEX, Plot:15130, Mombasa Road, Embakasi, Embakasi East, Nairobi"
-                        )}&output=embed&z=16`;
-                        if (f.src !== fallback) f.src = fallback;
-                      }}
-                  />
-                  {/* 第三重兜底：如果浏览器或 CSP 仍拦截，用户至少能点开新窗口 */}
-                  <noscript>
-                    <a
-                        href="https://maps.google.com/?q=Unit%3A00%2C%20Floor%3A00%2C%20KC%20ARORA%20COMPLEX%2C%20Plot%3A15130%2C%20Mombasa%20Road%2C%20Embakasi%2C%20Embakasi%20East%2C%20Nairobi"
-                        target="_blank" rel="noreferrer"
-                    >
-                      View on Google Maps
-                    </a>
-                  </noscript>
+                  <a
+                      href="https://www.google.com/maps/place/Lekkerix+Energy/@-1.3490496,36.8996985,16.75z/data=!4m14!1m7!3m6!1s0x182f0d001bc1e6e1:0x526b5a49462b4c57!2sLekkerix+Energy!8m2!3d-1.3489055!4d36.9030045!16s%2Fg%2F11xmmj2wht!3m5!1s0x182f0d001bc1e6e1:0x526b5a49462b4c57!8m2!3d-1.3489055!4d36.9030045!16s%2Fg%2F11xmmj2wht?entry=ttu&g_ep=EgoyMDI1MDkyMy4wIKXMDSoASAFQAw%3D%3D"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full h-full"
+                  >
+                    <img
+                        src="http://lekkerix.co.ke/images/compressed_map.jpg"
+                        alt="View on Google Maps"
+                        className="w-full h-full object-cover rounded-lg hover:opacity-90 transition"
+                    />
+                  </a>
                 </div>
 
               </div>
