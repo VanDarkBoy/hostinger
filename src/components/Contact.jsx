@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {motion} from 'framer-motion';
-import {Send, User, Mail, MessageSquare, Building, Phone} from 'lucide-react';
+import {Send, User, Mail, MessageSquare, Building, Phone, Loader2} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {useToast} from '@/components/ui/use-toast';
 
@@ -14,6 +14,7 @@ const Contact = () => {
         subject: '',
         message: ''
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
@@ -42,6 +43,8 @@ const Contact = () => {
             your_message: formData.message
         };
 
+        setIsSubmitting(true);
+
         try {
             const response = await fetch('http://lekkerix.co.ke/api/inquiry/receive', {
                 method: 'POST',
@@ -51,7 +54,6 @@ const Contact = () => {
             const res = await response.json();
 
             if (res.code === 200) {
-
                 toast({
                     title: "The inquiry was successfully submitted！",
                     description: "We will reply your inquiry within 24 hours, thank you for your attention!",
@@ -80,6 +82,8 @@ const Contact = () => {
                 description: err.message || "Please try again later",
                 variant: "destructive"
             });
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -234,7 +238,8 @@ const Contact = () => {
                                                     onChange={handleInputChange}
                                                     placeholder={field.placeholder}
                                                     required={field.required}
-                                                    className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                                    disabled={isSubmitting}
+                                                    className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
                                                 />
                                             </div>
                                         </motion.div>
@@ -279,7 +284,8 @@ const Contact = () => {
                                         placeholder="Please describe your needs in detail, including application scenarios, capacity requirements, budget range, etc..."
                                         required
                                         rows={6}
-                                        className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
+                                        disabled={isSubmitting}
+                                        className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none disabled:opacity-60 disabled:cursor-not-allowed"
                                     />
                                 </motion.div>
 
@@ -291,10 +297,20 @@ const Contact = () => {
                                 >
                                     <Button
                                         type="submit"
-                                        className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 energy-glow"
+                                        disabled={isSubmitting}
+                                        className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 energy-glow disabled:opacity-70 disabled:hover:from-blue-600 disabled:hover:to-green-600"
                                     >
-                                        <Send className="h-5 w-5 mr-2"/>
-                                        Send Inquiry
+                                        {isSubmitting ? (
+                                            <>
+                                                <Loader2 className="h-5 w-5 mr-2 animate-spin"/>
+                                                Sending...
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Send className="h-5 w-5 mr-2"/>
+                                                Send Inquiry
+                                            </>
+                                        )}
                                     </Button>
                                 </motion.div>
                             </form>
