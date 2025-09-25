@@ -42,8 +42,8 @@ const Footer = () => {
               viewport={{ once: true }}
               className="flex space-x-6 text-sm text-gray-400"
             >
-              <span className="hover:text-white transition-colors duration-200 cursor-pointer">Privacy Policy</span>
-              <span className="hover:text-white transition-colors duration-200 cursor-pointer">Terms of Service</span>
+              {/*<span className="hover:text-white transition-colors duration-200 cursor-pointer">Privacy Policy</span>*/}
+              {/*<span className="hover:text-white transition-colors duration-200 cursor-pointer">Terms of Service</span>*/}
             </motion.div>
           </div>
         </div>

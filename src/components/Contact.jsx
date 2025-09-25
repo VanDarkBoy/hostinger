@@ -38,9 +38,10 @@ const Contact = () => {
 
         const apiData = {
             email: formData.email,
-            first_name: formData.name,
+            last_name: formData.name,
             company: formData.company,
-            your_message: formData.message
+            your_message: formData.message,
+            phone: formData.phone,
         };
 
         setIsSubmitting(true);
