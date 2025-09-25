@@ -5,29 +5,6 @@ import { Battery, Zap, Mail, Phone, MapPin, Globe } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const footerLinks = [
-    {
-      title: '',
-      links: []
-    },
-    {
-      title: '',
-      links: ['', '', '', '']
-    },
-    {
-      title: '',
-      links: ['', '', '', '']
-    }
-  ];
-
-  const contactInfo = [
-    { icon: Phone, text: '+86 755-8888-9999' },
-    { icon: Mail, text: 'info@greenenergy.com' },
-    { icon: MapPin, text: '深圳市南山区科技园南区' },
-    { icon: Globe, text: 'www.greenenergy.com' }
-  ];
-
   return (
     <footer className="bg-gradient-to-b from-slate-900 to-black py-16 relative overflow-hidden">
       {/* Background decoration */}
@@ -45,61 +22,7 @@ const Footer = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/*<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">*/}
-        {/*  /!* Company Info *!/*/}
-        {/*  <motion.div*/}
-        {/*    initial={{ opacity: 0, y: 30 }}*/}
-        {/*    whileInView={{ opacity: 1, y: 0 }}*/}
-        {/*    transition={{ duration: 0.6 }}*/}
-        {/*    viewport={{ once: true }}*/}
-        {/*    className="lg:col-span-1"*/}
-        {/*  >*/}
-        {/*    <div className="flex items-center space-x-2 mb-6">*/}
-        {/*      <div className="relative">*/}
-        {/*        <Battery className="h-8 w-8 text-blue-400" />*/}
-        {/*        <Zap className="h-4 w-4 text-yellow-400 absolute -top-1 -right-1" />*/}
-        {/*      </div>*/}
-        {/*      <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">*/}
-        {/*        Lekkerix*/}
-        {/*      </span>*/}
-        {/*    </div>*/}
-        {/*    <p className="text-gray-400 mb-6 leading-relaxed">*/}
-        {/*      Focusing on the R&D and production of energy storage battery technology, we provide efficient, safe, and reliable energy storage solutions for global customers.*/}
-        {/*    </p>*/}
-        {/*    <div className="space-y-3">*/}
-        {/*      {contactInfo.map((item, index) => (*/}
-        {/*        <div key={index} className="flex items-center space-x-3">*/}
-        {/*          <item.icon className="h-4 w-4 text-blue-400 flex-shrink-0" />*/}
-        {/*          <span className="text-gray-400 text-sm">{item.text}</span>*/}
-        {/*        </div>*/}
-        {/*      ))}*/}
-        {/*    </div>*/}
-        {/*  </motion.div>*/}
 
-        {/*  /!* Footer Links *!/*/}
-        {/*  {footerLinks.map((section, index) => (*/}
-        {/*    <motion.div*/}
-        {/*      key={section.title}*/}
-        {/*      initial={{ opacity: 0, y: 30 }}*/}
-        {/*      whileInView={{ opacity: 1, y: 0 }}*/}
-        {/*      transition={{ duration: 0.6, delay: index * 0.1 }}*/}
-        {/*      viewport={{ once: true }}*/}
-        {/*    >*/}
-        {/*      <h3 className="text-white font-semibold mb-4">{section.title}</h3>*/}
-        {/*      <ul className="space-y-2">*/}
-        {/*        {section.links.map((link, linkIndex) => (*/}
-        {/*          <li key={linkIndex}>*/}
-        {/*            <span className="text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer text-sm">*/}
-        {/*              {link}*/}
-        {/*            </span>*/}
-        {/*          </li>*/}
-        {/*        ))}*/}
-        {/*      </ul>*/}
-        {/*    </motion.div>*/}
-        {/*  ))}*/}
-        {/*</div>*/}
-
-        {/* Divider */}
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <motion.div
