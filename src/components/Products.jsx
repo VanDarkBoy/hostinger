@@ -8,10 +8,10 @@ const Products = () => {
     const {toast} = useToast();
 
     const handleLearnMore = () => {
-        toast({
-            title: "🚧 此功能尚未实现",
-            description: "别担心！您可以在下一个提示中请求此功能！🚀",
-        });
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({behavior: 'smooth'});
+        }
     };
 
     const [products, setProducts] = useState([]);
