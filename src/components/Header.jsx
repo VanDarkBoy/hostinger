@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Battery, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
@@ -34,17 +34,12 @@ const Header = () => {
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2"
-          >
-            <div className="relative">
-              <Battery className="h-8 w-8 text-blue-400" />
-              <Zap className="h-4 w-4 text-yellow-400 absolute -top-1 -right-1" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
-              Lekkerix
-            </span>
+          <motion.div whileHover={{ scale: 1.05 }} className="flex items-center">
+            <img
+              src="http://lekkerix.co.ke/images/compressed_logo.jpg"
+              alt="Lekkerix logo"
+              className="h-12 w-auto object-contain"
+            />
           </motion.div>
 
           {/* Desktop Menu */}
