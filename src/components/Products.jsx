@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedReference
+
 import React, {useState, useEffect} from 'react';
 import {motion} from 'framer-motion';
 import {Battery, Zap, Shield, Gauge, Thermometer, Recycle, ShieldCheck} from 'lucide-react';
@@ -76,7 +78,7 @@ const Products = () => {
                             <div className="relative mb-6">
 
                                 <img
-                                    className="w-full h-48 object-cover rounded-lg mb-4"
+                                    className="w-full h-48 object-contain rounded-xl mb-4 bg-white"
                                     alt={`${product.name}Product image`}
                                     src={product.imgUrl}/>
                             </div>
@@ -107,7 +109,7 @@ const Products = () => {
                                 onClick={handleLearnMore}
                                 className={`w-full bg-gradient-to-r ${product.color} hover:opacity-90 text-white font-semibold py-2 rounded-lg transition-all duration-300`}
                             >
-                                了解更多
+                                Learn more
                             </Button>
                         </motion.div>
                     ))}
